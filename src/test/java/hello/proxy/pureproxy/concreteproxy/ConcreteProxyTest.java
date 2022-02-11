@@ -17,8 +17,8 @@ public class ConcreteProxyTest {
     @Test
     void addProxy(){
         ConcreteLogic concreteLogic = new ConcreteLogic();
-        TimeProxy timeProxy = new TimeProxy(concreteLogic);
-        ConcreteClient client = new ConcreteClient(timeProxy);
+        TimeProxy timeProxy = new TimeProxy(concreteLogic); // 오버라이딩 해서 실행! 인터페이스와 같다!!
+        ConcreteClient client = new ConcreteClient(timeProxy); //Concrete 클라이언트는 이게 proxy인지 concrete인지 관심없다.
         client.execute();
     }
 
