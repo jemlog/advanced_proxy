@@ -29,7 +29,10 @@ public class ReflectionTest {
 
     @Test
     void reflection1() throws Exception {
+
+        // 클래스의 메타 정보, 메서드, 필드 등의 정보를 가져오는걸 리플랙션 이라고 한다.
         //클래스 메타 정보 얻음
+        // 내부 클래스는 구분을 위해서 $를 앞에 붙여준다.
         Class classHello = Class.forName("hello.proxy.jdkdynamic.ReflectionTest$Hello");
 
         Hello target = new Hello();
@@ -47,6 +50,7 @@ public class ReflectionTest {
 
     @Test
     void reflection2() throws Exception {
+
         //클래스 메타 정보 얻음
         Class classHello = Class.forName("hello.proxy.jdkdynamic.ReflectionTest$Hello");
 
@@ -67,6 +71,9 @@ public class ReflectionTest {
     {
         log.info("start");
 
+        // target 안의 method를 invoke 하겠다는 의미!
+        // 만약 callB의 Method라면 b.callB()를 호출하겠다는 것이다.
+        // invoke 하겠다 -> 누구의? -> target의 메서드를
         Object result = method.invoke(target);
         log.info("result={}",result);
     }
