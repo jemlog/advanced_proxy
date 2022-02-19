@@ -17,14 +17,21 @@ public class ProxyFactoryTest {
     @Test
     @DisplayName("인터페이스가 있으면 JDK 동적 프록시 사용")
     void interfaceProxy() {
+
+        // target에는 내가 호출하기 원하는 객체를 넣는다.
         ServiceInterface target = new ServiceImpl();
+
         // 미리 프록시팩토리 만들때 target 정보 넣는다. 그래서 methodInterceptor에 target이 필요없던 것이다.
+        // proxyFactory는 해당 target이 implements 하고 있는 인터페이스를 기반으로 프록시를 만든다.
         ProxyFactory proxyFactory = new ProxyFactory(target);
+        // 프록시에 어떤 advise를 적용할지 설정! -> 이미 팩토리에 target정보가 있기때문에 호출만 하면 된다!
         proxyFactory.addAdvice(new TimeAdvice());
+        // proxy를 만들어내는 로직
         ServiceInterface proxy = (ServiceInterface) proxyFactory.getProxy();
         log.info("target.class={}", target.getClass());
         log.info("proxy.class={}", proxy.getClass());
 
+        // target의 인터페이스의 메서드를 기반으로 호출!
         proxy.save();
 
         // 프록시 팩토리를 통해 만들었을때 사용가능!

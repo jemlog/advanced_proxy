@@ -18,6 +18,7 @@ public class TimeAdvice implements MethodInterceptor {
 
         // 알아서 target을 찾아서 args를 넘기면 실행을 해준다.
         // 실제 타겟 호출!
+        // 만약 proxy의 특정 메서드가 실행되면, 그 method 정보가 넘어오고, proceed로 호출할 수 있다.
         Object result = invocation.proceed();
 
         long endTime = System.currentTimeMillis();

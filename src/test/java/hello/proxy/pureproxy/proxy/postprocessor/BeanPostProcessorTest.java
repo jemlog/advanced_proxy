@@ -62,6 +62,7 @@ public class BeanPostProcessorTest {
         }
     }
 
+    //
     @Slf4j
     static class AToBPostProcessor implements BeanPostProcessor
     {

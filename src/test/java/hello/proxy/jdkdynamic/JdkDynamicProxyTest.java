@@ -14,6 +14,7 @@ public class JdkDynamicProxyTest {
     {
         AInterface target = new AImpl();
 
+        // TimeInvocationHandler는 프록시 로직을 실행해준다. 어떤 객체의 프록시인지 target으로 넣어야함
         TimeInvocationHandler handler = new TimeInvocationHandler(target);
 
         // newProxyInstance : 동적으로 생성이 된다.
