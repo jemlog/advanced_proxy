@@ -30,7 +30,7 @@ public class AutoProxyConfig {
 
     }
 
-  //  @Bean
+    @Bean
     public Advisor advisor2(LogTrace logTrace)
     {
         // beanPostProcessor는 자동으로 등록되어있으므로, 나는 어드바이저만 만들면 된다!
@@ -41,7 +41,7 @@ public class AutoProxyConfig {
         return new DefaultPointcutAdvisor(pointcut,advice);
     }
 
-    @Bean
+    // @Bean
     public Advisor advisor3(LogTrace logTrace)
     {
         // beanPostProcessor는 자동으로 등록되어있으므로, 나는 어드바이저만 만들면 된다!
